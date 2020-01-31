@@ -10,7 +10,7 @@ Important: Matrix Index start at 1
 
 ## Progress:
 - [x] Numeral - BigInteger Adaptation
-- [x] BigDecimal Adaptation
+- [x] Decimal - BigDecimal Adaptation
 - [x] Matrix - Matrix  Sumattion
 - [ ] Matrix - Number  Sumattion
 - [x] Matrix - Matrix  Substraction
