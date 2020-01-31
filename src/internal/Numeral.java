@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class Numeral {
 
-    BigInteger number = null;
+    private BigInteger number = null;
 
     public Numeral(byte[] val) {
         number = new BigInteger(val);
@@ -34,6 +34,10 @@ public class Numeral {
 
     public Numeral(int val) {
         number = new BigInteger(String.valueOf(val));
+    }
+
+    Numeral(BigInteger val) {
+        number = val;
     }
 
     public Numeral(long val) {
@@ -59,12 +63,12 @@ public class Numeral {
     public static Numeral valueOf(long val) {
         return new Numeral(String.valueOf(val));
     }
-    
+
     public Numeral set(Numeral val) {
         number = val.getNumber();
         return this;
     }
-    
+
     public Numeral set(long val) {
         number = new BigInteger(String.valueOf(val));
         return this;
@@ -365,7 +369,7 @@ public class Numeral {
         return number.toString(radix);
     }
 
-    private BigInteger getNumber() {
+    protected BigInteger getNumber() {
         return number;
     }
 

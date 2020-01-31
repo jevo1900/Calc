@@ -11,21 +11,21 @@ package internal;
  */
 public class Matrix {
 
-    private final Numeral[][] matrix;
+    private final Decimal[][] matrix;
 
     public Matrix(int row, int col) {
-        this.matrix = new Numeral[row][col];
+        this.matrix = new Decimal[row][col];
     }
 
     public void set(int row, int col, long value) {
-        matrix[row - 1][col - 1] = new Numeral(value);
+        matrix[row - 1][col - 1] = new Decimal(value);
     }
 
-    public void set(int row, int col, Numeral value) {
+    public void set(int row, int col, Decimal value) {
         matrix[row - 1][col - 1] = value;
     }
 
-    public Numeral get(int row, int col) {
+    public Decimal get(int row, int col) {
         return matrix[row - 1][col - 1];
     }
     
@@ -48,10 +48,15 @@ public class Matrix {
         multiplyMatrixNumber(matrix, value);
         return this;
     }
+    
+    public Matrix divide(long value) {
+        divideMatrixNumber(matrix, value);
+        return this;
+    }
 
-    private Numeral[][] MatrixSummation(Numeral[][] a, Numeral[][] b) {
+    private Decimal[][] MatrixSummation(Decimal[][] a, Decimal[][] b) {
         //we supose matrix are both the same size
-        Numeral sum = new Numeral(0);
+        Decimal sum = new Decimal(0);
         int i, j, rowA = a.length, colA = a[0].length;
         Matrix m = new Matrix(rowA, colA);
 
@@ -63,9 +68,9 @@ public class Matrix {
         return m.getMatrix();
     }
 
-    private Numeral[][] MatrixSubstraction(Numeral[][] a, Numeral[][] b) {
+    private Decimal[][] MatrixSubstraction(Decimal[][] a, Decimal[][] b) {
         //we supose matrix are both the same size
-        Numeral sum = new Numeral(0);
+        Decimal sum = new Decimal(0);
         int i, j, rowA = a.length, colA = a[0].length;
         Matrix m = new Matrix(rowA, colA);
 
@@ -77,9 +82,9 @@ public class Matrix {
         return m.getMatrix();
     }
 
-    private Numeral[][] multiplyMatrixMatrix(Numeral[][] a, Numeral[][] b) {
+    private Decimal[][] multiplyMatrixMatrix(Decimal[][] a, Decimal[][] b) {
 
-        Numeral sum = new Numeral(0);
+        Decimal sum = new Decimal(0);
         Matrix m = new Matrix(a.length, b[0].length);
 
         for (int i = 0; i < a.length; i++) {
@@ -95,11 +100,21 @@ public class Matrix {
 
     }
 
-    private Numeral[][] multiplyMatrixNumber(Numeral[][] a, long b) {
-        Numeral[][] matrizResultado = new Numeral[a.length][a[0].length];
+    private Decimal[][] multiplyMatrixNumber(Decimal[][] a, long b) {
+        Decimal[][] matrizResultado = new Decimal[a.length][a[0].length];
         for (int i = 0; i != a.length; i++) {
             for (int j = 0; j != a[i].length; j++) {
                 matrizResultado[i][j] = a[i][j].multiply(b); //matrix - number.
+            }
+        }
+        return matrizResultado;
+    }
+    
+    private Decimal[][] divideMatrixNumber(Decimal[][] a, long b) {
+        Decimal[][] matrizResultado = new Decimal[a.length][a[0].length];
+        for (int i = 0; i != a.length; i++) {
+            for (int j = 0; j != a[i].length; j++) {
+                matrizResultado[i][j] = a[i][j].divide(b); //matrix - number.
             }
         }
         return matrizResultado;
@@ -118,7 +133,7 @@ public class Matrix {
             b.append(bars).append("┬");
         }
         b.append(bars).append("┐\n");
-        for (Numeral[] numerals : matrix) {
+        for (Decimal[] numerals : matrix) {
             b.append("│");
             b.append(String.format("%-" + countSize + "s", numerals[0]));
             for (int i = 1; i < numerals.length; i++) {
@@ -136,8 +151,8 @@ public class Matrix {
 
     private int countSize() {
         int n = 0;
-        for (Numeral[] numerals : matrix) {
-            for (Numeral numeral : numerals) {
+        for (Decimal[] numerals : matrix) {
+            for (Decimal numeral : numerals) {
                 int length = numeral.toString().length();
                 if (n < length) {
                     n = length;
@@ -147,7 +162,7 @@ public class Matrix {
         return n;
     }
 
-    private Numeral[][] getMatrix() {
+    private Decimal[][] getMatrix() {
         return matrix;
     }
 
