@@ -35,11 +35,13 @@ public class Main {
         m2.set(2, 1, 10);
         m2.set(2, 2, 4);
 
-        System.out.println("Matrix 1: \n"+m);
-        System.out.println("Matrix 2: \n"+m2);
-        System.out.println("Matrix Sumattion: \n"+m.summation(m2));
-        System.out.println("Matrix Substraction: \n"+m.substraction(m2));
-        System.out.println("Matrix - Matrix Multiplication: \n"+m.multiply(m2));
-        System.out.println("Matrix - Number Multiplication: \n"+m.multiply(3));
+        System.out.println("Matrix 1: \n" + m);
+        System.out.println("Matrix 2: \n" + m2);
+        System.out.println("Matrix Sumattion: \n" + m.summation(m2));
+        System.out.println("Matrix Substraction: \n" + m.substraction(m2));
+        System.out.println("Matrix - Matrix Multiplication: \n" + m.multiply(m2));
+        System.out.println("Matrix - Number Multiplication: \n" + m.multiply(3));
+        System.out.println("Matrix - Number Division: \n" + m.divide(3));
+
     }
 }
