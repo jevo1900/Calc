@@ -17,3 +17,4 @@ Important: Matrix Index start at 1
 - [ ] Matrix - Number  Substraction
 - [x] Matrix - Matrix Multiplication
 - [x] Matrix - Number Multiplication
+- [x] Matrix - Number Division
