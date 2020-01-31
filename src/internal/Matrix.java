@@ -27,7 +27,7 @@ public class Matrix {
     }
 
     public Numeral get(int row, int col) {
-        return matrix[row][col];
+        return matrix[row-1][col-1];
     }
     
     public Matrix multiply(Matrix matrix) {
