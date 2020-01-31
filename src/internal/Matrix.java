@@ -50,7 +50,7 @@ public class Matrix {
     }
 
     private Numeral[][] MatrixSummation(Numeral[][] a, Numeral[][] b) {
-        //web supose matrix are both the same size
+        //we supose matrix are both the same size
         Numeral sum = new Numeral(0);
         int i, j, rowA = a.length, colA = a[0].length;
         Matrix m = new Matrix(rowA, colA);
@@ -64,7 +64,7 @@ public class Matrix {
     }
 
     private Numeral[][] MatrixSubstraction(Numeral[][] a, Numeral[][] b) {
-        //web supose matrix are both the same size
+        //we supose matrix are both the same size
         Numeral sum = new Numeral(0);
         int i, j, rowA = a.length, colA = a[0].length;
         Matrix m = new Matrix(rowA, colA);
@@ -86,7 +86,7 @@ public class Matrix {
             for (int j = 0; j < b[0].length; j++) {
                 sum.set(0);
                 for (int k = 0; k < a[0].length; k++) {
-                    sum.set(a[i][k].multiply(b[k][j]));
+                    sum.set(a[i][k].multiply(b[k][j]));//matrix value - matrix value
                 }
                 m.set(i + 1, j + 1, sum);
             }
@@ -99,7 +99,7 @@ public class Matrix {
         Numeral[][] matrizResultado = new Numeral[a.length][a[0].length];
         for (int i = 0; i != a.length; i++) {
             for (int j = 0; j != a[i].length; j++) {
-                matrizResultado[i][j] = a[i][j].multiply(b); //simplemente se multiplica cada valor de la matriz por el valor escalar.
+                matrizResultado[i][j] = a[i][j].multiply(b); //matrix - number.
             }
         }
         return matrizResultado;
